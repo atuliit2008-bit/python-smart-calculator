@@ -1,14 +1,15 @@
-# """
-# main.py
-# Main program for Smart Calculator
-# """
+"""
+main.py
+Professional Smart Calculator
+"""
 
 from calculator import *
 
 
 def show_menu():
-    # """Display calculator menu"""
-    print("\n========== SMART CALCULATOR ==========")
+    print("\n" + "=" * 40)
+    print("        SMART CALCULATOR")
+    print("=" * 40)
     print("1. Addition")
     print("2. Subtraction")
     print("3. Multiplication")
@@ -18,7 +19,7 @@ def show_menu():
     print("7. Modulus")
     print("8. Floor Division")
     print("9. Exit")
-    print("======================================")
+    print("=" * 40)
 
 
 while True:
@@ -31,37 +32,44 @@ while True:
         print("\nThank you for using Smart Calculator.")
         break
 
-    if choice == "6":
+    try:
 
-        number = float(input("Enter number: "))
+        if choice == "6":
 
-        print("Result =", square_root(number))
+            number = float(input("Enter number: "))
+            result = square_root(number)
+            print("Result =", result)
+            continue
 
-        continue
+        a = float(input("Enter first number: "))
+        b = float(input("Enter second number: "))
 
-    a = float(input("Enter first number: "))
-    b = float(input("Enter second number: "))
+        if choice == "1":
+            result = add(a, b)
 
-    if choice == "1":
-        print("Result =", add(a, b))
+        elif choice == "2":
+            result = subtract(a, b)
 
-    elif choice == "2":
-        print("Result =", subtract(a, b))
+        elif choice == "3":
+            result = multiply(a, b)
 
-    elif choice == "3":
-        print("Result =", multiply(a, b))
+        elif choice == "4":
+            result = divide(a, b)
 
-    elif choice == "4":
-        print("Result =", divide(a, b))
+        elif choice == "5":
+            result = power(a, b)
 
-    elif choice == "5":
-        print("Result =", power(a, b))
+        elif choice == "7":
+            result = modulus(a, b)
 
-    elif choice == "7":
-        print("Result =", modulus(a, b))
+        elif choice == "8":
+            result = floor_division(a, b)
 
-    elif choice == "8":
-        print("Result =", floor_division(a, b))
+        else:
+            print("Invalid Choice!")
+            continue
 
-    else:
-        print("Invalid choice!")
+        print("Result =", result)
+
+    except ValueError:
+        print("\nPlease enter valid numbers.")
