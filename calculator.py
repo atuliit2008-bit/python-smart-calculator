@@ -50,3 +50,11 @@ def square_root(a):
     if a < 0:
         return "Error! Negative number."
     return math.sqrt(a)
+
+def save_history(operation, result):
+    # """
+    # Save calculations into history.txt
+    # """
+
+    with open("history.txt", "a") as file:
+        file.write(f"{operation} = {result}\n")
